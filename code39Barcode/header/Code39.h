@@ -1,6 +1,5 @@
 
-#ifndef BARCODE_GENERATOR_CODE39_H
-#define BARCODE_GENERATOR_CODE39_H
+#pragma once
 
 
 #include <string>
@@ -14,4 +13,3 @@ public:
 };
 
 
-#endif //BARCODE_GENERATOR_CODE39_H
