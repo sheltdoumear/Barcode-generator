@@ -13,8 +13,9 @@ int main() {
 
     renderer.savePNG("barcode.png", barcode, 120, 20);
     renderer.saveSVG("barcode.svg", barcode, 120, 20);
+    std::cout << "all okay" << std::endl;
 
-    //writer.save("barcode.bmp", barcode, 100, 10);
+    writer.save("barcode.bmp", barcode, 100, 10);
 
     // for (int pixel : barcode) {
     //     std::cout << (pixel ? "#" : " ");
