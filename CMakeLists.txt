@@ -1,22 +1,12 @@
-cmake_minimum_required(VERSION 3.20)
-project(BarcodeGenerator)
+cmake_minimum_required(VERSION 3.10)
+project(code128)
 
-set(CMAKE_CXX_STANDARD 17)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 11)
 
-add_executable(BarcodeGenerator
-         # code 39
-        code39Barcode/implementation/Code39.cpp
-        code39Barcode/implementation/BMPWriter.cpp
-        code39Barcode/implementation/BarcodeImage.cpp
-        code39Barcode/main.cpp
+add_compile_definitions(CODE128_EXPORTS _CRT_SECURE_NO_WARNINGS)
 
-        # code 128
-        #code128Barcode/barcode_generator.cpp
-        #code128Barcode/Main.cpp
-)
+add_library(code128 SHARED barcode_generator.cpp)
 
-target_include_directories(BarcodeGenerator PRIVATE
-        code39Barcode/header
-        #code128Barcode
-)
+target_include_directories(code128 PRIVATE .)
+
+set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
