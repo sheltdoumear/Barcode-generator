@@ -9,17 +9,18 @@ int main() {
     BarcodeImage renderer;
 
 
-    auto barcode = code.encode("HELLO");
+    int narrow = 2;
+    int wide = narrow * 3;
+    int scale = 3;
 
-    renderer.savePNG("barcode.png", barcode, 120, 20);
-    renderer.saveSVG("barcode.svg", barcode, 120, 20);
+    auto barcode = code.encode("WIKIPEDIA", narrow, wide);
+
+    renderer.savePNG("barcode.png", barcode, 120, 20, scale);
+    renderer.saveSVG("barcode.svg", barcode, 120, 20, scale);
+
     std::cout << "all okay" << std::endl;
 
     writer.save("barcode.bmp", barcode, 100, 10);
 
-    // for (int pixel : barcode) {
-    //     std::cout << (pixel ? "#" : " ");
-    // }
-    //
-    // std::cout << std::endl;
+
 }
