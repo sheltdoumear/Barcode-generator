@@ -6,17 +6,33 @@
     #define BARCODE_API extern "C"
 #endif
 
-BARCODE_API void generateBarcodePNG(
+BARCODE_API bool generateBarcodePNG(
     const char* text,
-    const char* filename
+    const char* filename,
+    int height,
+    int margin,
+    int scale,
+    int narrow,
+    int wide
 );
 
-BARCODE_API void generateBarcodeSVG(
+BARCODE_API bool generateBarcodeSVG(
     const char* text,
-    const char* filename
+    const char* filename,
+    int height,
+    int margin,
+    int scale,
+    int narrow,
+    int wide
 );
 
-BARCODE_API void generateBarcodeBMP(
+BARCODE_API bool generateBarcodeBMP(
     const char* text,
-    const char* filename
+    const char* filename,
+    int height,
+    int margin,
+    int narrow,
+    int wide
 );
+
+BARCODE_API const char* code39GetLastError();

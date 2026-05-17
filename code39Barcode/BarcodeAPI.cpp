@@ -4,39 +4,171 @@
 #include "BMPWriter.h"
 #include "BarcodeImage.h"
 
-#include <iostream>
+#include <string>
 
-void generateBarcodePNG(const char* text,
-                        const char* filename)
+static std::string lastError;
+
+// error
+
+const char* code39GetLastError()
+{
+    return lastError.c_str();
+}
+
+
+
+static bool buildBarcode(
+    const char* text,
+    std::vector<int>& output,
+    int narrow,
+    int wide
+)
 {
     try {
 
-        std::cout << "STEP 1\n";
+        lastError.clear();
 
         Code39 code;
-        BarcodeImage renderer;
 
-        std::cout << "STEP 2\n";
+        output = code.encode(text, narrow, wide);
 
-        int narrow = 2;
-        int wide = 6;
-        int scale = 3;
-
-        auto barcode = code.encode(text, narrow, wide);
-
-        std::cout << "STEP 3\n";
-
-        renderer.savePNG(filename, barcode, 120, 20, scale);
-
-        std::cout << "STEP 4\n";
-
+        return true;
     }
     catch (const std::exception& e) {
 
-        std::cerr << "EXCEPTION: " << e.what() << std::endl;
+        lastError = e.what();
+        return false;
     }
     catch (...) {
 
-        std::cerr << "UNKNOWN ERROR\n";
+        lastError = "Unknown error";
+        return false;
+    }
+}
+
+// png
+
+bool generateBarcodePNG(
+    const char* text,
+    const char* filename,
+    int height,
+    int margin,
+    int scale,
+    int narrow,
+    int wide
+)
+{
+    try {
+
+        std::vector<int> barcode;
+
+        if (!buildBarcode(text, barcode, narrow, wide))
+            return false;
+
+        BarcodeImage renderer;
+
+        renderer.savePNG(
+            filename,
+            barcode,
+            height,
+            margin,
+            scale
+        );
+
+        return true;
+    }
+    catch (const std::exception& e) {
+
+        lastError = e.what();
+        return false;
+    }
+    catch (...) {
+
+        lastError = "Unknown error";
+        return false;
+    }
+}
+
+// svg
+
+bool generateBarcodeSVG(
+    const char* text,
+    const char* filename,
+    int height,
+    int margin,
+    int scale,
+    int narrow,
+    int wide
+)
+{
+    try {
+
+        std::vector<int> barcode;
+
+        if (!buildBarcode(text, barcode, narrow, wide))
+            return false;
+
+        BarcodeImage renderer;
+
+        renderer.saveSVG(
+            filename,
+            barcode,
+            height,
+            margin,
+            scale
+        );
+
+        return true;
+    }
+    catch (const std::exception& e) {
+
+        lastError = e.what();
+        return false;
+    }
+    catch (...) {
+
+        lastError = "Unknown error";
+        return false;
+    }
+}
+
+// bmp
+
+bool generateBarcodeBMP(
+    const char* text,
+    const char* filename,
+    int height,
+    int margin,
+    int narrow,
+    int wide
+)
+{
+    try {
+
+        std::vector<int> barcode;
+
+        if (!buildBarcode(text, barcode, narrow, wide))
+            return false;
+
+        BMPWriter writer;
+
+        writer.save(
+            filename,
+            barcode,
+            height,
+            margin
+        );
+
+        return true;
+    }
+    catch (const std::exception& e) {
+
+        lastError = e.what();
+        return false;
+    }
+    catch (...) {
+
+        lastError = "Unknown error";
+        return false;
     }
 }

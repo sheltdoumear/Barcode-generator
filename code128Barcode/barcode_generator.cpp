@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <cstring>
-
-#define STB_IMAGE_WRITE_IMPLEMENTATION
+#include <cstdint>
+// #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
 static const int PATTERNS[106][6] = {
@@ -157,7 +157,7 @@ extern "C" {
         return static_cast<BarcodeGenerator*>(generator)->generate(data, filename) ? 1 : 0;
     }
 
-    CODE128_API const char* GetLastError(void* generator) {
+    CODE128_API const char* GetBarcode128Error(void* generator) {
         if (!generator) return "Invalid generator";
         return static_cast<BarcodeGenerator*>(generator)->getLastError();
     }
