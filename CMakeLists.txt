@@ -9,12 +9,21 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(BarcodeGenerator SHARED
 
+        # code39
         code39Barcode/BarcodeAPI.cpp
         code39Barcode/implementation/Code39.cpp
         code39Barcode/implementation/BMPWriter.cpp
         code39Barcode/implementation/BarcodeImage.cpp
 
+        # code128
         code128Barcode/barcode_generator.cpp
+
+        # qr code
+        qrCode/qr_code_generator.cpp
+        qrCode/qrcodegen.cpp
+        qrCode/QRAPI.h
+        qrCode/QRAPI.cpp
+
 )
 
 target_link_options(BarcodeGenerator PRIVATE
@@ -27,6 +36,7 @@ target_link_options(BarcodeGenerator PRIVATE
 target_include_directories(BarcodeGenerator PRIVATE
         code39Barcode/header
         code128Barcode
+        qrCode
 )
 
 target_compile_definitions(BarcodeGenerator PRIVATE
