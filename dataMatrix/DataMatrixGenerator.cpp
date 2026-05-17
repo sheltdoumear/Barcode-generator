@@ -277,48 +277,48 @@ void DataMatrixGenerator::saveToBitmap(const std::vector<std::vector<bool>>& mat
 
 #include <iostream>
 
-int main() {
-    try {
-        DataMatrixGenerator generator;
-
-        
-        std::string testData = "Hello, Data Matrix!";
-
-        
-        std::cout << "Generating Data Matrix for: " << testData << std::endl;
-        auto matrix = generator.generate(testData);
-
-        
-        auto size = generator.getSymbolSize();
-        std::cout << "Symbol size: " << size.rows << "x" << size.cols << std::endl;
-        std::cout << "Capacity: " << size.capacity << " bytes" << std::endl;
-
-        
-        generator.saveToBitmap(matrix, "datamatrix.bmp", 10);
-        std::cout << "Saved to datamatrix.bmp" << std::endl;
-
-        
-        std::vector<std::string> testStrings = {
-            "Test 123",
-            "Data Matrix ECC 200",
-            "https://example.com",
-            "Hello World!"
-        };
-
-        for (size_t i = 0; i < testStrings.size(); i++) {
-            auto m = generator.generate(testStrings[i]);
-            std::string filename = "datamatrix_test" + std::to_string(i + 1) + ".bmp";
-            generator.saveToBitmap(m, filename, 10);
-            std::cout << "Saved: " << filename << std::endl;
-        }
-
-        std::cout << "\nData Matrix generation completed successfully!" << std::endl;
-
-    }
-    catch (const std::exception& e) {
-        std::cerr << "Error: " << e.what() << std::endl;
-        return 1;
-    }
-
-    return 0;
-}
+// int main() {
+//     try {
+//         DataMatrixGenerator generator;
+//
+//
+//         std::string testData = "Hello, Data Matrix!";
+//
+//
+//         std::cout << "Generating Data Matrix for: " << testData << std::endl;
+//         auto matrix = generator.generate(testData);
+//
+//
+//         auto size = generator.getSymbolSize();
+//         std::cout << "Symbol size: " << size.rows << "x" << size.cols << std::endl;
+//         std::cout << "Capacity: " << size.capacity << " bytes" << std::endl;
+//
+//
+//         generator.saveToBitmap(matrix, "datamatrix.bmp", 10);
+//         std::cout << "Saved to datamatrix.bmp" << std::endl;
+//
+//
+//         std::vector<std::string> testStrings = {
+//             "Test 123",
+//             "Data Matrix ECC 200",
+//             "https://example.com",
+//             "Hello World!"
+//         };
+//
+//         for (size_t i = 0; i < testStrings.size(); i++) {
+//             auto m = generator.generate(testStrings[i]);
+//             std::string filename = "datamatrix_test" + std::to_string(i + 1) + ".bmp";
+//             generator.saveToBitmap(m, filename, 10);
+//             std::cout << "Saved: " << filename << std::endl;
+//         }
+//
+//         std::cout << "\nData Matrix generation completed successfully!" << std::endl;
+//
+//     }
+//     catch (const std::exception& e) {
+//         std::cerr << "Error: " << e.what() << std::endl;
+//         return 1;
+//     }
+//
+//     return 0;
+// }

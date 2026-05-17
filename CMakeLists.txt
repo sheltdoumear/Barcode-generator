@@ -23,6 +23,11 @@ add_library(BarcodeGenerator SHARED
         qrCode/qrcodegen.cpp
         qrCode/QRAPI.h
         qrCode/QRAPI.cpp
+        dataMatrix/DataMatrixAPI.cpp
+
+        # data matrix
+        dataMatrix/DataMatrixAPI.cpp
+        dataMatrix/DataMatrixGenerator.cpp
 
 )
 
@@ -37,6 +42,7 @@ target_include_directories(BarcodeGenerator PRIVATE
         code39Barcode/header
         code128Barcode
         qrCode
+        dataMatrix
 )
 
 target_compile_definitions(BarcodeGenerator PRIVATE
