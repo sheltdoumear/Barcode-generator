@@ -28,6 +28,14 @@ add_library(BarcodeGenerator SHARED
         # data matrix
         dataMatrix/DataMatrixAPI.cpp
         dataMatrix/DataMatrixGenerator.cpp
+        EAN/EAN13API.h
+        EAN/EAN13API.cpp
+
+        # ean
+        EAN/BarcodeRenderer.cpp
+        EAN/EAN13API.cpp
+        EAN/EAN13Code.cpp
+        EAN/ImageWriter.cpp
 
 )
 
@@ -43,6 +51,7 @@ target_include_directories(BarcodeGenerator PRIVATE
         code128Barcode
         qrCode
         dataMatrix
+        EAN
 )
 
 target_compile_definitions(BarcodeGenerator PRIVATE

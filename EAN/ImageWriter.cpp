@@ -1,5 +1,5 @@
 #include "ImageWriter.h"
-#define STB_IMAGE_WRITE_IMPLEMENTATION
+//#define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "stb_image_write.h"
 
 ImageWriter::ImageWriter(int w, int h) : width(w), height(h) {
