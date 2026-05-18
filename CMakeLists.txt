@@ -9,6 +9,8 @@ set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 
 add_library(BarcodeGenerator SHARED
 
+        UnifiedBarcodeAPI.cpp
+
         # code39
         code39Barcode/BarcodeAPI.cpp
         code39Barcode/implementation/Code39.cpp
@@ -36,6 +38,9 @@ add_library(BarcodeGenerator SHARED
         EAN/EAN13API.cpp
         EAN/EAN13Code.cpp
         EAN/ImageWriter.cpp
+        UnifiedBarcodeAPI.h
+        UnifiedBarcodeAPI.cpp
+        dataMatrix/DataMatrixAPI.h
 
 )
 
