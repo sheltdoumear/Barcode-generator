@@ -1,5 +1,6 @@
 #ifndef IMAGE_WRITER_H
 #define IMAGE_WRITER_H
+#pragma once
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <string>
@@ -24,4 +25,4 @@ public:
     int getHeight() const { return height; }
 };
 
-#endif#pragma once
+#endif
