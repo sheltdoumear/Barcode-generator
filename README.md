@@ -34,7 +34,7 @@
 
 Для генерации PNG используется библиотека stb_image_write
 ### UML таблица
-
+![UML для Code128](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/code128Barcode_UML.PNG)
 ## Code 39
 
 Каждый символ кодируется 9 чередующимися черно-белыми полосами разной ширины (в коде последовательность 0 и 1: 1 - широкая полоса, 0 - узкая) 
@@ -45,7 +45,7 @@
 Для генерации PNG файлов используется библиотека **stb_image_write**
 
 ### UML таблица
-
+![UML для Code39](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/code39Barcode_UML.PNG)
 ## Data Matrix Code
 
 Для использования библиотеки в коде необходимо настроить функции из библиотеки в файле, где эти функции будут использоваться.
@@ -58,7 +58,7 @@
 Для генерации BMP используется самописный модуль без сторонних библиотек.
 
 ### UML таблица
-
+![UML для DataMatrix](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/DataMatrix_UML.PNG)
 ## QR Code
 ```cpp
 int generateQRCodePNG(const char* text, const char* filename, int scale);
@@ -79,7 +79,9 @@ int generateQRCodePNG(const char* text, const char* filename, int scale);
 | `HIGH` | 30% |
 ### Описания ключевых моментов реализации
 ### UML таблица
-
+![UML для QRCode 1 фото](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/QRCODE_UML_1.PNG)
+![UML для QRCode 2 фото](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/QRCODE_UML_2.PNG)
+![UML для QRCode 3 фото](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/QRCODE_UML_3.PNG)
 ## EAN Code
 Архитектура:
 Проект построен по принципам ООП с разделением ответственности:
@@ -108,3 +110,4 @@ BarcodeApplication	Управление пользовательским инт�
 C++17 features	std::filesystem, std::make_unique, static_cast
 Без внешних зависимостей	Только stb_image_write.h (однозаголовочная библиотека)
 ### UML таблица
+![UML для EAN](https://github.com/sheltdoumear/Barcode-generator/blob/master/UML_TABLES/EAN_UML.PNG)
